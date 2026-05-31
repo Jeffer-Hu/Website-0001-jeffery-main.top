@@ -1,0 +1,654 @@
+<!DOCTYPE html> <!-- 文档类型HTML5 -->
+<html lang="zh-CN"> <!-- 中文主题 -->
+<head>
+    <meta charset="UTF-8">  <!-- 字符编码 -->
+    <!-- 手机端自适应 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- SEO 基础标签 -->
+    <meta property="og:title" content="Jeffery Hu | Personal Website">
+	<meta property="og:description" content="为何不在明天来临前多睡会儿呢？">	<!-- 水至清则无鱼，人至察则无徒！ -->
+	<meta property="og:url" content="https://huyang3780.top">
+	<meta property="og:type" content="website">
+    <meta property="og:image" content="./pic/personal_photo.jpg">
+    <!-- 网站图标 -->
+    <link rel="icon" href="./pic/icon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./pic/icon.ico" type="image/x-icon">
+    <!-- 网站标题 -->
+    <title id="page-title" data-i18n="page-title"></title>
+    <!-- 外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./src/font-awesome.min.css" rel="stylesheet">
+
+    
+    <!-- Tailwind 自定义配置 -->
+    <script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						primary: '#3B82F6',
+						secondary: '#10B981',
+						accent: '#EC4899',
+						wechat: '#07C160',
+						weibo: '#E6162D',
+						zhihu: '#0F88EB',
+						qq: '#12B7F5',
+						dark: '#1E293B',
+						light: '#F8FAFC',
+						softBlue: '#E1F5FE',
+						softGreen: '#E8F5E9',
+						softBeige: '#F5F5DC',
+						softPink: '#FFEBEE',
+						softGray: '#F5F7FA',
+						softLavender: '#F3E5F5'
+					},
+					fontFamily: {
+						sans: ['Inter', 'system-ui', 'sans-serif'],
+					},
+				}
+			}
+		}
+    </script>
+	<link rel="stylesheet" href="./src/css.css">
+	<script src="./src/lang.js"></script>
+</head>
+<body class="index-bg-pattern text-dark overflow-x-hidden geometric-shapes">
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm shadow-sm" id="navbar">
+        <div class="nav-decoration"></div>
+        
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="https://huyang3780.top" class="text-2xl font-bold flex items-center group mr-6">
+                    <span class="mr-2 text-primary group-hover:rotate-12 transition-transform duration-300"><i class="fa fa-connectdevelop"></i></span>
+                    <span>Jeffery Hu</span>
+                </a>
+                
+                <div class="hidden md:block">
+                    <select id="language-selector" class="language-selector bg-white border border-gray-300 text-dark rounded-md px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option value="cn" selected>中文</option>
+                        <option value="en">English</option>
+                        <option value="jp">日本語</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+			
+			<nav class="hidden md:flex items-center space-x-6">
+				<a href="#about" class="link-underline" data-i18n="nav-about">关于我</a>
+				<a href="#explore" class="link-underline" data-i18n="nav-explore">探索内容</a>
+				<a href="#updates" class="link-underline" data-i18n="nav-updates">最新动态</a>
+				<a href="#contact" class="link-underline" data-i18n="nav-contact">联系我</a>
+			</nav>
+        </div>
+        
+        <div class="md:hidden bg-white shadow-2xl absolute w-full left-0 top-full transform -translate-y-full opacity-0 transition-all duration-300 pointer-events-none" id="mobile-menu">
+			<div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+				<div class="mb-1">
+					<select id="mobile-language-selector" class="language-selector w-full bg-white border border-gray-300 text-dark rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+						<option value="cn" selected>中文</option>
+						<option value="en">English</option>
+						<option value="jp">日本語</option>
+					</select>
+				</div>
+				<a href="#about" class="text-lg py-2 border-b border-gray-100" data-i18n="nav-about-mobile"></a>
+				<a href="#explore" class="text-lg py-2 border-b border-gray-100" data-i18n="nav-explore-mobile"></a>
+				<a href="#updates" class="text-lg py-2 border-b border-gray-100" data-i18n="nav-updates-mobile"></a>
+				<a href="#contact" class="text-lg py-2 border-b border-gray-100" data-i18n="nav-contact-mobile"></a>
+			</div>
+		</div>
+    </header>
+
+	<section class="min-h-screen pt-24 relative overflow-hidden flex items-center">
+		<div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
+			<div class="absolute top-20 right-20 w-64 h-64 rounded-full bg-primary/30 blur-3xl"></div>
+			<div class="absolute bottom-20 right-40 w-80 h-80 rounded-full bg-accent/30 blur-3xl"></div>
+		</div>
+		
+		<div class="container mx-auto px-4 pt-12 pb-24 relative z-10">
+			<div class="max-w-3xl mx-auto text-left"> <!-- 改为左对齐 -->
+				<h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold leading-tight mb-6" data-i18n="hero-title">
+					欢迎来到<br><span class='bg-gradient-to-r from-primary to-accent text-gradient whitespace-nowrap'>Jeffery</span>的个人空间
+				</h1>
+				<p class="text-[clamp(1rem,2vw,1.25rem)] text-gray-600 mb-8 max-w-2xl" data-i18n="hero-desc">
+					这里是我的数字家园，汇集了我的学习、工作与生活点滴。无论你是同学、老师、合作伙伴还是朋友，都能找到感兴趣的内容
+				</p>
+				<div class="flex flex-wrap gap-4"> <!-- 移除justify-center，默认左对齐 -->
+					<a href="#explore" class="px-8 py-3 bg-primary text-white rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1 transition-all"
+						data-i18n="hero-btn-explore">
+						开始探索 <i class='fa fa-compass ml-2'></i>
+					</a>
+					<a href="#contact" class="px-8 py-3 bg-white text-dark rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all border border-gray-100"
+						data-i18n="hero-btn-contact">
+						联系我 <i class='fa fa-envelope ml-2'></i>
+					</a>
+				</div>
+			</div>
+			
+			<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce lg:bottom-10 sm:bottom-8">
+				<a href="#about" class="text-gray-400 hover:text-primary transition-colors">
+					<i class="fa fa-chevron-down text-2xl"></i>
+				</a>
+			</div>
+		</div>
+		
+		<div class="section-divider absolute bottom-0 left-0"></div>
+	</section>
+
+    <section id="about" class="py-20 relative overflow-hidden section-fade">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4"
+                    data-i18n="about-badge">
+                    关于我
+                </span>
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-6"
+                    data-i18n="about-title">
+                    简单认识一下
+                </h2>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl max-w-5xl mx-auto relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-10">
+                    <div class="w-full lg:w-1/3">
+                        <div class="relative">
+                            <img src="pic/personal_photo.jpg" alt="个人照片" class="w-full rounded-2xl shadow-lg">
+                            <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-lg">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white">
+                                    <i class="fa fa-user text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full lg:w-2/3">
+                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="about-desc1">
+                            你好！我是Jeffery Hu，一个对世界充满好奇的探索者。在不同的角色中，我努力做到最好——无论是学习、工作还是生活。
+                        </p>
+                        <p class="text-gray-600 mb-8 leading-relaxed" data-i18n="about-desc2">
+                            这个网站是我与世界连接的窗口，记录了我的成长、思考和创造。欢迎通过各个板块了解更多，也期待与你建立联系。
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center text-box-softBlue px-4 py-2">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                                    <i class="fa fa-graduation-cap"></i>
+                                </div>
+                                <span data-i18n="about-tag1">终身学习者</span>
+                            </div>
+                            <div class="flex items-center text-box-softGreen px-4 py-2">
+                                <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mr-3">
+                                    <i class="fa fa-cogs"></i>
+                                </div>
+                                <span data-i18n="about-tag2">实践者</span>
+                            </div>
+                            <div class="flex items-center text-box-softPink px-4 py-2">
+                                <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent mr-3">
+                                    <i class="fa fa-share-alt"></i>
+                                </div>
+                                <span data-i18n="about-tag3">分享者</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider absolute bottom-0 left-0"></div>
+    </section>
+
+    <section id="explore" class="py-20 relative overflow-hidden section-fade">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4"
+                    data-i18n="explore-badge">
+                    探索内容
+                </span>
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-6"
+                    data-i18n="explore-title">
+                    发现感兴趣的板块
+                </h2>
+                <p class="text-gray-600 text-lg"
+                    data-i18n="explore-desc">
+                    这里有不同主题的内容集合，点击进入了解更多详情
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- 学习与研究卡片 -->
+                <a href="https://resource.huyang3780.top" class="block group">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-xl h-full card-hover text-box-softBlue">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="pic/study.jpg" alt="学习与研究" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-xl font-bold text-white flex items-center" data-i18n="explore-card1-title">
+                                    <i class='fa fa-flask mr-2'></i> 学习与研究
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4" data-i18n="explore-card1-desc">
+                                课程学习、研究项目、学术资料与思考
+                            </p>
+                            <div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform"
+                                data-i18n="explore-card-link">
+                                进入板块 <i class='fa fa-arrow-right ml-2'></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- 作品与项目卡片 -->
+                <a href="https://portfolio.huyang3780.top" class="block group">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-xl h-full card-hover text-box-softGreen">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="pic/works.jpg" alt="作品与项目" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-xl font-bold text-white flex items-center" data-i18n="explore-card2-title">
+                                    <i class='fa fa-briefcase mr-2'></i> 作品与项目
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4" data-i18n="explore-card2-desc">
+                                个人项目、作品集、实践成果展示
+                            </p>
+                            <div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform"
+                                data-i18n="explore-card-link">
+                                进入板块 <i class='fa fa-arrow-right ml-2'></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- 日常与思考卡片 -->
+                <a href="https://blog.huyang3780.top" class="block group">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-xl h-full card-hover text-box-softBeige">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="pic/daily.jpg" alt="日常与思考" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-xl font-bold text-white flex items-center" data-i18n="explore-card3-title">
+                                    <i class='fa fa-pencil mr-2'></i> 日常与思考
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4" data-i18n="explore-card3-desc">
+                                随笔、感悟、生活记录与思想分享
+                            </p>
+                            <div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform"
+                                data-i18n="explore-card-link">
+                                进入板块 <i class='fa fa-arrow-right ml-2'></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- 资源与工具卡片 -->
+                <a href="https://resource.huyang3780.top" class="block group">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-xl h-full card-hover text-box-softGray">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="pic/resources.jpg" alt="资源与工具" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-xl font-bold text-white flex items-center" data-i18n="explore-card4-title">
+                                    <i class='fa fa-wrench mr-2'></i> 资源与工具
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4" data-i18n="explore-card4-desc">
+                                实用资源、工具推荐、学习资料整理
+                            </p>
+                            <div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform"
+                                data-i18n="explore-card-link">
+                                进入板块 <i class='fa fa-arrow-right ml-2'></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- 简历与经历卡片 -->
+                <a href="https://cv.huyang3780.top" class="block group">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-xl h-full card-hover text-box-softPink">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="pic/experience.jpg" alt="简历与经历" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-xl font-bold text-white flex items-center" data-i18n="explore-card5-title">
+                                    <i class='fa fa-id-card mr-2'></i> 简历与经历
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4" data-i18n="explore-card5-desc">
+                                个人经历、教育背景、技能与工作经验
+                            </p>
+                            <div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform"
+                                data-i18n="explore-card-link">
+                                进入板块 <i class='fa fa-arrow-right ml-2'></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- 互动与留言卡片 -->
+                <a href="https://guestbook.huyang3780.top" class="block group">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-xl h-full card-hover text-box-softBlue">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="pic/interaction.jpg" alt="互动与留言" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <h3 class="text-xl font-bold text-white flex items-center" data-i18n="explore-card6-title">
+                                    <i class='fa fa-comments mr-2'></i> 互动与留言
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4" data-i18n="explore-card6-desc">
+                                留言板、交流区、问题反馈与建议
+                            </p>
+                            <div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform"
+                                data-i18n="explore-card-link">
+                                进入板块 <i class='fa fa-arrow-right ml-2'></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 留学计划与研究提案卡片 -->
+				<a href="https://studyplan.huyang3780.top" class="block group">
+					<div class="bg-white rounded-2xl overflow-hidden shadow-xl h-full card-hover text-box-softLavender">
+						<div class="h-48 overflow-hidden relative">
+							<img src="pic/studyplan.jpg" alt="留学计划与研究提案" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+							<div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+							<div class="absolute bottom-4 left-4 right-4">
+								<h3 class="text-xl font-bold text-white flex items-center" data-i18n="explore-card7-title">
+									<i class='fa fa-plane mr-2'></i> 留学计划与研究提案
+								</h3>
+							</div>
+						</div>
+						<div class="p-6">
+							<p class="text-gray-600 mb-4" data-i18n="explore-card7-desc">
+								留学准备、研究方向、申请计划与学术提案
+							</p>
+							<div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform"
+                                data-i18n="explore-card-link">
+                                进入板块 <i class='fa fa-arrow-right ml-2'></i>
+                            </div>
+						</div>
+					</div>
+				</a>
+
+                <!-- 技能与证书展示卡片 -->
+				<a href="https://skills.huyang3780.top" class="block group">
+					<div class="bg-white rounded-2xl overflow-hidden shadow-xl h-full card-hover text-box-softBlue">
+						<div class="h-48 overflow-hidden relative">
+							<img src="pic/skills.jpg" alt="技能与证书展示" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+							<div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+							<div class="absolute bottom-4 left-4 right-4">
+								<h3 class="text-xl font-bold text-white flex items-center" data-i18n="explore-card8-title">
+									<i class='fa fa-certificate mr-2'></i> 技能与证书展示
+								</h3>
+							</div>
+						</div>
+						<div class="p-6">
+							<p class="text-gray-600 mb-4" data-i18n="explore-card8-desc">
+								专业技能、语言能力、认证证书与获奖情况
+							</p>
+							<div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform"
+                                data-i18n="explore-card-link">
+                                进入板块 <i class='fa fa-arrow-right ml-2'></i>
+                            </div>
+						</div>
+					</div>
+				</a>
+
+                <!-- 课外活动与社会经历卡片 -->
+				<a href="https://extracurricular.huyang3780.top" class="block group">
+					<div class="bg-white rounded-2xl overflow-hidden shadow-xl h-full card-hover text-box-softGreen">
+						<div class="h-48 overflow-hidden relative">
+							<img src="pic/extracurricular.jpg" alt="课外活动与社会经历" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+							<div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent"></div>
+							<div class="absolute bottom-4 left-4 right-4">
+								<h3 class="text-xl font-bold text-white flex items-center" data-i18n="explore-card9-title">
+									<i class='fa fa-users mr-2'></i> 课外活动与社会经历
+								</h3>
+							</div>
+						</div>
+						<div class="p-6">
+							<p class="text-gray-600 mb-4" data-i18n="explore-card9-desc">
+								社团活动、志愿者经历、社会实践展示
+							</p>
+							<div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform"
+                                data-i18n="explore-card-link">
+                                进入板块 <i class='fa fa-arrow-right ml-2'></i>
+                            </div>
+						</div>
+					</div>
+				</a>
+
+			</div>
+        </div>
+        
+        <div class="section-divider absolute bottom-0 left-0"></div>
+    </section>
+
+    <section id="updates" class="py-20 section-fade">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4"
+                    data-i18n="updates-badge">
+                    最新动态
+                </span>
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-6"
+                    data-i18n="updates-title">
+                    近期更新
+                </h2>
+                <p class="text-gray-600 text-lg"
+                    data-i18n="updates-desc">
+                    了解最新的内容更新和活动信息
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <!-- 更新1：新的网页UI上线 -->
+                    <div class="text-box-softBlue rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 card-hover update-card">
+                        <div class="update-icon bg-primary/10 text-primary">
+                            <i class="fa fa-file-text-o text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <i class="fa fa-calendar-o mr-2"></i>
+                                <span data-i18n="update1-date">2025年8月</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2" data-i18n="update1-title">
+                                新的网页UI上线
+                            </h3>
+                            <p class="text-gray-600" data-i18n="update1-desc">
+                                将网站全面升级，停用了v1.5.0的个人网页，全新的v2.0.0网页已启用，增加了模块化分站与多语言选择框，适配中英日3国语言。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 更新2：推荐书单更新 -->
+                    <div class="text-box-softBeige rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 card-hover update-card">
+                        <div class="update-icon bg-accent/10 text-accent">
+                            <i class="fa fa-book text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <i class="fa fa-calendar-o mr-2"></i>
+                                <span data-i18n="update2-date">2025年7月</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2" data-i18n="update2-title">
+                                推荐书单更新
+                            </h3>
+                            <p class="text-gray-600" data-i18n="update2-desc">
+                                新增几本专业相关书籍推荐，包含详细阅读笔记和心得。这些书籍涵盖了计算机科学、设计思维和个人成长等多个领域，每本都附有详细的阅读建议。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 更新3：个人网站更新 -->
+                    <div class="text-box-softGreen rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4 card-hover update-card">
+                        <div class="update-icon bg-secondary/10 text-secondary">
+                            <i class="fa fa-code text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <i class="fa fa-calendar-o mr-2"></i>
+                                <span data-i18n="update3-date">2025年7月</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2" data-i18n="update3-title">
+                                个人网站更新
+                            </h3>
+                            <p class="text-gray-600" data-i18n="update3-desc">
+                                完成了v1.5.0的完善与上线。这些完善包括网页UI的更新，本地CSS与JS的预加载，交互式界面的优化等。
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="update.html" class="inline-flex items-center px-6 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-colors"
+                        data-i18n="updates-view-all">
+                        查看全部动态 <i class='fa fa-angle-right ml-2'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-divider absolute bottom-0 left-0"></div>
+    </section>
+
+    <section id="contact" class="py-20 relative overflow-hidden section-fade">
+        <div class="container mx-auto px-4 relative z-10">
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4"
+					data-i18n="contact-badge">
+					联系我
+				</span>
+				<h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold mb-6"
+					data-i18n="contact-title">
+					保持联系
+				</h2>
+				<p class="text-gray-600 text-lg"
+					data-i18n="contact-desc">
+					无论您有任何问题或合作意向，都可以通过以下方式联系我
+				</p>
+			</div>
+			
+			<div class="max-w-5xl mx-auto">
+				<!-- 移除发送消息卡片，只保留联系方式卡片并平铺显示 -->
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<!-- 电子邮件卡片 -->
+					<div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+						<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+							<i class="fa fa-envelope text-2xl"></i>
+						</div>
+						<h3 class="text-xl font-bold mb-4" data-i18n="contact-email-title">
+							电子邮件
+						</h3>
+						<p class="text-gray-600 mb-6" data-i18n="contact-email-desc">
+							随时发送邮件，我会尽快回复
+						</p>
+						<a href="mailto:contact@huyang3780.top" class="text-primary font-medium hover:underline flex items-center">
+							<span>contact@huyang3780.top</span>
+							<i class="fa fa-external-link ml-2"></i>
+						</a>
+					</div>
+					
+					<!-- 微信卡片 -->
+					<div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+						<div class="w-14 h-14 rounded-full bg-wechat/10 flex items-center justify-center text-wechat mb-6">
+							<i class="fa fa-weixin text-2xl"></i>
+						</div>
+						<h3 class="text-xl font-bold mb-4" data-i18n="contact-wechat-title">
+							微信
+						</h3>
+						<p class="text-gray-600 mb-6" data-i18n="contact-wechat-desc">
+							扫码添加我的微信
+						</p>
+						<div class="bg-gray-100 p-3 inline-block rounded-lg">
+							<img src="pic/wechat.png" alt="微信二维码" class="w-32 h-32 object-cover">
+						</div>
+					</div>
+					
+					<!-- QQ卡片 -->
+					<div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+						<div class="w-14 h-14 rounded-full bg-qq/10 flex items-center justify-center text-qq mb-6">
+							<i class="fa fa-qq text-2xl"></i>
+						</div>
+						<h3 class="text-xl font-bold mb-4" data-i18n="contact-qq-title">
+							QQ
+						</h3>
+						<p class="text-gray-600 mb-6" data-i18n="contact-qq-desc">
+							扫码添加我的QQ
+						</p>
+						<div class="bg-gray-100 p-3 inline-block rounded-lg">
+							<img src="pic/qq.png" alt="QQ二维码" class="w-32 h-32 object-cover">
+						</div>
+					</div>
+				</div>
+				
+				<!-- 留言板跳转按钮 -->
+				<div class="mt-10 text-center">
+					<a href="https://guestbook.huyang3780.top" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1 transition-all text-lg font-medium">
+						<i class="fa fa-comments mr-2"></i>
+						<span data-i18n="contact-guestbook-btn">访问留言板</span>
+					</a>
+					<p class="mt-4 text-gray-500" data-i18n="contact-guestbook-desc">
+						您可以在留言板直接评论和交流
+					</p>
+				</div>
+			</div>
+		</div>
+    </section>
+
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="https://huyang3780.top" class="text-2xl font-bold flex items-center">
+                        <span class="mr-2 text-primary"><i class="fa fa-connectdevelop"></i></span>
+                        <span>Jeffery Hu</span>
+                    </a>
+                    <p class="text-gray-400 mt-2" data-i18n="footer-desc">
+                        我的数字家园，连接你我
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-about">关于我</a>
+                    <a href="#explore" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-explore">探索内容</a>
+                    <a href="#updates" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-updates">最新动态</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer-link-contact">联系我</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm" data-i18n="footer-copyright">
+                    © 2026 Jeffery Hu | 保留所有权利。
+                </p>
+                <div class="mt-4 md:mt-0">
+                    <select id="footer-language-selector" class="language-selector bg-gray-800 border border-gray-700 text-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-primary">
+                        <option value="cn" selected>中文</option>
+                        <option value="en">English</option>
+                        <option value="jp">日本語</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./src/js.js"></script>
+</body>
+</html>
